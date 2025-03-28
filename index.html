@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retro Games | Jogos Clássicos</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <h1>Retro Games</h1>
+        <nav>
+            <button class="game-btn active" data-game="tic-tac-toe">Jogo da Velha</button>
+            <button class="game-btn" data-game="simon">Genius</button>
+            <button class="game-btn" data-game="minesweeper">Campo Minado</button>
+            <button class="game-btn" data-game="snake">Cobrinha</button>
+            <button class="game-btn" data-game="memory">Memória</button>
+            <button class="game-btn" data-game="rps">Pedra Papel Tesoura</button>
+        </nav>
+    </header>
+
+    <main>
+        <section id="snake" class="game-container">
+            <div class="game-header">
+                <h2>Jogo da Cobrinha</h2>
+                <div class="score">
+                    <span>Pontuação: <span id="snake-score">0</span></span>
+                </div>
+            </div>
+            
+            <canvas id="snake-canvas" width="400" height="400"></canvas>
+            <div class="game-controls">
+                <button id="start-snake">Iniciar Jogo</button>
+                <div id="snake-message"></div>
+            </div>
+            <!-- Dentro da seção do jogo da cobrinha -->
+            
+        </section>
+        
+        <!-- Jogo da Memória -->
+        <section id="memory" class="game-container">
+            <div class="game-header">
+                <h2>Jogo da Memória</h2>
+                <div class="score">
+                    <span>Movimentos: <span id="moves-count">0</span></span>
+                </div>
+            </div>
+            <div class="memory-board" id="memory-board"></div>
+            <div class="game-controls">
+                <button id="start-memory">Novo Jogo</button>
+                <span id="memory-message"></span>
+            </div>
+        </section>
+        
+        <!-- Pedra, Papel e Tesoura -->
+        <section id="rps" class="game-container">
+            <div class="game-header">
+                <h2>Pedra, Papel e Tesoura</h2>
+                <div class="score">
+                    <span>Você: <span id="player-score">0</span></span>
+                    <span>CPU: <span id="cpu-score">0</span></span>
+                </div>
+            </div>
+            <div class="rps-choices">
+                <button class="rps-btn" data-choice="rock">✊</button>
+                <button class="rps-btn" data-choice="paper">✋</button>
+                <button class="rps-btn" data-choice="scissors">✌️</button>
+            </div>
+            <div class="rps-result">
+                <div id="player-choice"></div>
+                <div id="result-message"></div>
+                <div id="cpu-choice"></div>
+            </div>
+            <div class="game-history" id="game-history"></div>
+        </section>
+        <!-- Jogo da Velha -->
+        <section id="tic-tac-toe" class="game-container active">
+            <div class="game-header">
+                <h2>Jogo da Velha</h2>
+                <div class="score">
+                    <span>X: <span id="x-score">0</span></span>
+                    <span>O: <span id="o-score">0</span></span>
+                </div>
+            </div>
+            <div class="board" id="tic-tac-toe-board">
+                <!-- Gerado via JavaScript -->
+            </div>
+            <button id="reset-tic-tac-toe">Reiniciar Jogo</button>
+        </section>
+
+        <!-- Genius -->
+        <section id="simon" class="game-container">
+            <div class="game-header">
+                <h2>Genius</h2>
+                <div class="score">
+                    <span>Rodada: <span id="simon-round">1</span></span>
+                </div>
+            </div>
+            <div class="simon-container">
+                <div class="simon-btn red" data-color="red"></div>
+                <div class="simon-btn blue" data-color="blue"></div>
+                <div class="simon-btn green" data-color="green"></div>
+                <div class="simon-btn yellow" data-color="yellow"></div>
+            </div>
+            <div class="simon-controls">
+                <button id="start-simon">Iniciar</button>
+                <span id="simon-message"></span>
+            </div>
+        </section>
+
+        <!-- Campo Minado -->
+        <section id="minesweeper" class="game-container">
+            <div class="game-header">
+                <h2>Campo Minado</h2>
+                <div class="score">
+                    <span>Minas: <span id="mines-count">10</span></span>
+                </div>
+            </div>
+            <div class="minesweeper-controls">
+                <select id="difficulty">
+                    <option value="easy">Fácil (8x8)</option>
+                    <option value="medium">Médio (12x12)</option>
+                    <option value="hard">Difícil (16x16)</option>
+                </select>
+                <button id="start-minesweeper">Novo Jogo</button>
+            </div>
+            <div class="minesweeper-board" id="minesweeper-board">
+                <!-- Gerado via JavaScript -->
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Desenvolvido com ♥ para amantes de jogos clássicos</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,380 @@
+:root {
+    --primary: #2c3e50;
+    --secondary: #34495e;
+    --accent: #e74c3c;
+    --text: #ecf0f1;
+    --board-bg: #bdc3c7;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--primary);
+    color: var(--text);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    background-color: var(--secondary);
+    padding: 1rem;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+header h1 {
+    margin-bottom: 1rem;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.game-btn {
+    padding: 0.5rem 1rem;
+    background-color: var(--primary);
+    color: var(--text);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.game-btn:hover {
+    background-color: #3d566e;
+}
+
+.game-btn.active {
+    background-color: var(--accent);
+}
+
+main {
+    flex: 1;
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+}
+
+.game-container {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    max-width: 800px;
+    width: 100%;
+}
+
+.game-container.active {
+    display: flex;
+}
+
+.game-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.score {
+    display: flex;
+    gap: 1rem;
+}
+
+/* Jogo da Velha */
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 10px;
+    width: 300px;
+    height: 300px;
+    background-color: var(--board-bg);
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.board-cell {
+    background-color: var(--secondary);
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.board-cell:hover {
+    background-color: #3d566e;
+}
+
+.board-cell.x {
+    color: #e74c3c;
+}
+
+.board-cell.o {
+    color: #2ecc71;
+}
+
+/* Genius */
+.simon-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    width: 300px;
+    height: 300px;
+}
+
+.simon-btn {
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.2s;
+    opacity: 0.6;
+}
+
+.simon-btn.active {
+    opacity: 1;
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+}
+
+.simon-btn.red {
+    background-color: #e74c3c;
+}
+
+.simon-btn.blue {
+    background-color: #3498db;
+}
+
+.simon-btn.green {
+    background-color: #2ecc71;
+}
+
+.simon-btn.yellow {
+    background-color: #f1c40f;
+}
+
+.simon-controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+/* Campo Minado */
+.minesweeper-controls {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.minesweeper-board {
+    display: grid;
+    gap: 2px;
+    background-color: var(--board-bg);
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.minesweeper-cell {
+    width: 30px;
+    height: 30px;
+    background-color: var(--secondary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-weight: bold;
+    user-select: none;
+}
+
+.minesweeper-cell.revealed {
+    background-color: #7f8c8d;
+}
+
+.minesweeper-cell.mine {
+    background-color: var(--accent);
+}
+
+/* Botões */
+button {
+    padding: 0.5rem 1rem;
+    background-color: var(--accent);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+button:hover {
+    background-color: #c0392b;
+}
+
+select {
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: none;
+}
+
+footer {
+    background-color: var(--secondary);
+    padding: 1rem;
+    text-align: center;
+    margin-top: auto;
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+    .board, .simon-container {
+        width: 250px;
+        height: 250px;
+    }
+    
+    .minesweeper-cell {
+        width: 25px;
+        height: 25px;
+        font-size: 0.8rem;
+    }
+}
+
+/* Estilos para os novos jogos */
+
+/* Cobrinha */
+/* Adicione ao seu CSS */
+#snake-canvas {
+    border: 2px solid #e74c3c; /* Borda vermelha para as paredes */
+    background-color: #2c3e50;
+}
+
+.snake-controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 15px;
+    gap: 5px;
+}
+
+.snake-controls button {
+    width: 50px;
+    height: 50px;
+    font-size: 1.2rem;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.snake-controls button:hover {
+    background-color: #2980b9;
+}
+
+.snake-controls div {
+    display: flex;
+    gap: 5px;
+}
+
+/* Jogo da Memória */
+.memory-board {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.memory-card {
+    aspect-ratio: 1;
+    background-color: #3498db;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    cursor: pointer;
+    transform-style: preserve-3d;
+    transition: all 0.5s;
+    color: transparent;
+}
+
+.memory-card.flipped {
+    background-color: #ecf0f1;
+    transform: rotateY(180deg);
+    color: inherit;
+}
+
+.memory-card.matched {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s 0.5s, opacity 0.5s linear;
+}
+
+/* Pedra, Papel e Tesoura */
+.rps-choices {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 30px 0;
+}
+
+.rps-btn {
+    font-size: 4rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.rps-btn:hover {
+    transform: scale(1.1);
+}
+
+.rps-result {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 500px;
+    margin: 0 auto;
+    font-size: 3rem;
+    text-align: center;
+}
+
+#player-choice, #cpu-choice {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#result-message {
+    font-size: 1.2rem;
+    color: #ecf0f1;
+}
+
+.game-history {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    max-height: 150px;
+    overflow-y: auto;
+}
+
+.history-item {
+    padding: 5px 10px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+}
